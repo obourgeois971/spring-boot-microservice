@@ -1,4 +1,15 @@
 services:
+  accounts:
+    image: "eazybytes/accounts:s4"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
   loans:
     image: "eazybytes/loans:s4"
     container_name: loans-ms
@@ -14,18 +25,7 @@ services:
     image: "eazybytes/cards:s4"
     container_name: cards-ms
     ports:
-      - "9010:9010"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - eazybank
-  accounts:
-    image: "eazybytes/accounts:s4"
-    container_name: accounts-ms
-    ports:
-      - "8080:8080"
+      - "9000:9000"
     deploy:
       resources:
         limits:
